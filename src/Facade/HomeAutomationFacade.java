@@ -19,18 +19,22 @@ public class HomeAutomationFacade {
         System.out.println("\n--- Party Mode Activated ---");
         light.operate();
         musicSystem.operate();
+        System.out.println("🎉 Party mode setup complete!");
     }
 
     public void activateNightMode() {
         System.out.println("\n--- Night Mode Activated ---");
-        System.out.println("Lights are turned off.");
+        light.operate(); // выключает свет
         thermostat.operate();
         securityCamera.operate();
+        System.out.println("🌙 House is now in night mode.");
     }
 
     public void leaveHome() {
         System.out.println("\n--- Leaving Home ---");
-        System.out.println("All lights and devices are turned off.");
-        securityCamera.operate();
+        musicSystem.operate(); // выключает музыку
+        light.operate();       // выключает свет
+        securityCamera.operate(); // включает запись
+        System.out.println("🚪 All systems switched to away mode.");
     }
 }

@@ -3,6 +3,8 @@ package Decorators;
 import Devices.Device;
 
 public class EnergySavingDecorator extends DeviceDecorator {
+    private int energySaved = 0;
+
     public EnergySavingDecorator(Device device) {
         super(device);
     }
@@ -10,6 +12,7 @@ public class EnergySavingDecorator extends DeviceDecorator {
     @Override
     public void operate() {
         decoratedDevice.operate();
-        System.out.println("Energy-saving mode activated.");
+        energySaved += 10;
+        System.out.println("Energy-saving mode active. Total energy saved: " + energySaved + " kWh.");
     }
 }

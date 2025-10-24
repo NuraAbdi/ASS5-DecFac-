@@ -3,6 +3,8 @@ package Decorators;
 import Devices.Device;
 
 public class VoiceControlDecorator extends DeviceDecorator {
+    private boolean voiceActive = false;
+
     public VoiceControlDecorator(Device device) {
         super(device);
     }
@@ -10,6 +12,7 @@ public class VoiceControlDecorator extends DeviceDecorator {
     @Override
     public void operate() {
         decoratedDevice.operate();
-        System.out.println("Voice control is enabled for this device.");
+        voiceActive = true;
+        System.out.println("Voice control activated for this device.");
     }
 }

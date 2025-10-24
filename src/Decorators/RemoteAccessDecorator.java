@@ -3,6 +3,8 @@ package Decorators;
 import Devices.Device;
 
 public class RemoteAccessDecorator extends DeviceDecorator {
+    private boolean remoteEnabled = false;
+
     public RemoteAccessDecorator(Device device) {
         super(device);
     }
@@ -10,6 +12,7 @@ public class RemoteAccessDecorator extends DeviceDecorator {
     @Override
     public void operate() {
         decoratedDevice.operate();
-        System.out.println("Remote access enabled via Internet.");
+        remoteEnabled = true;
+        System.out.println("Device can now be controlled remotely.");
     }
 }
